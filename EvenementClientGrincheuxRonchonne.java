@@ -2,7 +2,7 @@ public class EvenementClientGrincheuxRonchonne extends Evenement {
     
     Client client;
     
-    public EvenementClientGrincheuxRonchonne(long d, Echeancier echeancier, Client c) {
+    public EvenementClientGrincheuxRonchonne(long d, Client c) {
        super(d);
        client = c;
        aProgrammerPlusTard();

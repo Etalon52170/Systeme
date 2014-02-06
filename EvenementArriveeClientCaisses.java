@@ -27,7 +27,17 @@ public class EvenementArriveeClientCaisses extends Evenement {
     	Caisse c = uneCaisseAuHazard(ligneDeCaisses);
     	Evenement e = new EvenementArriveeClientCaisses(date + loiDePoisson.suivant(), c);
     	echeancier.ajouter(e);
+
+        
+        long d = delaiDePatienceGrosCaddy;
+        if (client.getNbArticles() <= maxArticleCaisseRapide ) {
+            d = delaiDePatiencePetitCaddy;
+        }
+        e = new EvenementClientGrincheuxRonchonne(d, client);
+        echeancier.ajouter(e);
     }
+
+
     
     
     private static final LoiDePoisson loiDePoisson = new LoiDePoisson(96, frenceArriveeDesClients);
