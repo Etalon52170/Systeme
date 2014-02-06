@@ -1,12 +1,12 @@
 public class EssaiLoiDePoisson { 
-    public static void main(String args[]) {
-	LoiDePoisson loiDePoisson = new LoiDePoisson(8, 25);
+	public static void main(String args[]) {
+		LoiDePoisson loiDePoisson = new LoiDePoisson(8, 25);
 
-	int i = 1000;
-	while ( i > 0 ) {
-	    System.out.println(loiDePoisson.suivant());
-	    i--;
+		int i = 1000;
+		while ( i > 0 ) {
+			System.out.println(loiDePoisson.suivant());
+			i--;
+		}
 	}
-    }
 }
 

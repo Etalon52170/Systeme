@@ -21,15 +21,15 @@ public class Constantes { // et autres utilitaires.
     static final int tempsDePaimentCBouMonnaie = 600;
     
     public static void aProgrammerPlusTard () {
-	String s = null;
+       String s = null;
 	s.charAt(0); // Provoque un plantage volontaire !
-    }
-    
-    public static boolean incoherenceOuTrucBizarre () {
+}
+
+public static boolean incoherenceOuTrucBizarre () {
 	String s = null;
 	assert false : "incoherenceOuTrucBizarre";
 	s.charAt(0); // Provoque un plantage volontaire !
 	return false;
-    }
-    
+}
+
 }

@@ -9,13 +9,13 @@ public abstract class Evenement extends Constantes {
     public abstract void traiter (LigneDeCaisses ligneDeCaisses, Echeancier echeancier);
     
     public void affiche (LigneDeCaisses ligneDeCaisses) {
-	System.out.print('[');
-	System.out.print(date);
-	System.out.print(',');
-	this.afficheDetails(ligneDeCaisses);
-	System.out.print(']');
-    }
-    
-    public abstract void afficheDetails (LigneDeCaisses ligneDeCaisses);
-    
+       System.out.print('[');
+       System.out.print(date);
+       System.out.print(',');
+       this.afficheDetails(ligneDeCaisses);
+       System.out.print(']');
+   }
+   
+   public abstract void afficheDetails (LigneDeCaisses ligneDeCaisses);
+   
 }
