@@ -33,8 +33,14 @@ public class EvenementArriveeClientCaisses extends Evenement {
         if (client.getNbArticles() <= maxArticleCaisseRapide ) {
             d = delaiDePatiencePetitCaddy;
         }
+
+        
         e = new EvenementClientGrincheuxRonchonne(d, client);
         echeancier.ajouter(e);
+
+        long dd = (client.getNbArticles()*tempsPourScannerUnArticle)+(tempsDePaimentCBouMonnaie); 
+        Evenement efsc = new EvenementFinServiceClient(dd+ date, client, caisse);
+        echeancier.ajouter(efsc);
     }
 
 

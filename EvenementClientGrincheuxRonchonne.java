@@ -5,7 +5,7 @@ public class EvenementClientGrincheuxRonchonne extends Evenement {
     public EvenementClientGrincheuxRonchonne(long d, Client c) {
        super(d);
        client = c;
-       aProgrammerPlusTard();
+       
    }
    
    public void afficheDetails(LigneDeCaisses ligneDeCaisses) {
@@ -14,7 +14,8 @@ public class EvenementClientGrincheuxRonchonne extends Evenement {
    }
    
    public void traiter(LigneDeCaisses ligneDeCaisses, Echeancier echeancier) {
-       aProgrammerPlusTard();
+       Client c = new Client(date);
+    
    }
    
 }

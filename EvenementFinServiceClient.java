@@ -16,7 +16,7 @@ public class EvenementFinServiceClient extends Evenement {
    }
    
    public void traiter(LigneDeCaisses ligneDeCaisses, Echeancier echeancier) {
-       aProgrammerPlusTard();
+       Client c = new Client(date);
    }
    
 }

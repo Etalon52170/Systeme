@@ -30,13 +30,26 @@ public class EvenementChoisirBonneCaisse extends Evenement {
     	nbEssais = nbEssais + 1;
     	if ( ! caisse.estOuverteEtaccepte(client) ) {
 	    // On en essaye une autre:
-    		aProgrammerPlusTard();
+    		if(this.direction == 1) {
+                if( this.caisse.numero() == 15) {
+                    this.direction = -1;
+
+                }
+
+                
+            }else{
+                if( this.caisse.numero() == 1) {
+                    this.direction =1;
+                }
+                }
+          
+
     	} else if ( nbEssais <= 5 ) {
 	    // On est exigeant et on cherche une caisse vide:
     		if ( caisse.fileVide() ) {
-    			aProgrammerPlusTard();
+    			echeancier.ajouter(this);
     		} else {
-    			aProgrammerPlusTard();
+    			
     		}
     	} else if ( nbEssais <= 10 ) {
 	    // On est moins exigeant et on cherche une caisse pas trop longue:

@@ -1,4 +1,4 @@
-
+	
 public class EssaiPressRandomNG { 
 	public static void main(String args[]) {
 		PressRandomNumberGenerator random = new PressRandomNumberGenerator(80);
