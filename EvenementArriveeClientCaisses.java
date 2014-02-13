@@ -29,9 +29,9 @@ public class EvenementArriveeClientCaisses extends Evenement {
     	echeancier.ajouter(e);
 
         
-        long d = delaiDePatienceGrosCaddy;
+        long d = (delaiDePatienceGrosCaddy+ client.getDatedebut());
         if (client.getNbArticles() <= maxArticleCaisseRapide ) {
-            d = delaiDePatiencePetitCaddy;
+            d = (delaiDePatiencePetitCaddy);
         }
 
         

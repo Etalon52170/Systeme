@@ -54,5 +54,9 @@ public class Client extends Constantes {
     }
     
     private static final PressRandomNumberGenerator randomGenerator = new PressRandomNumberGenerator(34);
-    
+ 
+    public long getDatedebut(){
+        return dateDebut;
+    }
+
 }
