@@ -61,11 +61,11 @@
 
 	    public void ajouter (Client client) {
 	    	assert estOuverteEtaccepte(client);
-	    	if ( listeDesClients.isEmpty() ) {
+	    //	if ( listeDesClients.isEmpty() ) {
 	    		listeDesClients.add(client);
-	    	} else {
-	    		aProgrammerPlusTard();
-	    	}
+	    //	} else {
+	    //		aProgrammerPlusTard();
+	    //	}
 	    }
 	    
 	    public char getStatus () {

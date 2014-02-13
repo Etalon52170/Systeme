@@ -18,24 +18,35 @@ public class EvenementArriveeClientCaisses extends Evenement {
     }
     
     public void traiter(LigneDeCaisses ligneDeCaisses, Echeancier echeancier) {
-    	Client client = new Client(date);
-    	if ( caisse.estOuverteEtaccepte(client) ) {
-    		caisse.ajouter(client);
-    	} else {
-    		aProgrammerPlusTard();
-    	}
+    	       Client client = new Client(date);
+        if (caisse.estOuverteEtaccepte(client) && caisse.fileVide()) {
+            caisse.ajouter(client);
+            Evenement e = new EvenementFinServiceClient(date+client.getNbArticles()*tempsPourScannerUnArticle+tempsDePaimentCBouMonnaie, client,caisse);
+            echeancier.ajouter(e);
+        } else {
+            // Sinon, il choisit une autre caisse
+            if (caisse.numero() < ligneDeCaisses.nombreDeCaisses()/2){
+                // Droite
+                Evenement e = new EvenementChoisirBonneCaisse(date+tempsPourChangerDeCaisse,caisse,client,1);
+                echeancier.ajouter(e);
+            } else {
+                // Gauche
+                Evenement e = new EvenementChoisirBonneCaisse(date+tempsPourChangerDeCaisse,caisse,client,-1);
+                echeancier.ajouter(e);
+            }
+        }
     	Caisse c = uneCaisseAuHazard(ligneDeCaisses);
     	Evenement e = new EvenementArriveeClientCaisses(date + loiDePoisson.suivant(), c);
     	echeancier.ajouter(e);
 
         
-        long d = (delaiDePatienceGrosCaddy+ client.getDatedebut());
+        long d = delaiDePatienceGrosCaddy;
         if (client.getNbArticles() <= maxArticleCaisseRapide ) {
             d = (delaiDePatiencePetitCaddy);
         }
 
         
-        e = new EvenementClientGrincheuxRonchonne(d, client);
+        e = new EvenementClientGrincheuxRonchonne(date +d, client);
         echeancier.ajouter(e);
 
         long dd = (client.getNbArticles()*tempsPourScannerUnArticle)+(tempsDePaimentCBouMonnaie); 

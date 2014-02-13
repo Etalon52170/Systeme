@@ -26,42 +26,55 @@ public class EvenementChoisirBonneCaisse extends Evenement {
     	System.out.print(nbEssais);
     }
     
-    public void traiter(LigneDeCaisses ligneDeCaisses, Echeancier echeancier) {
-    	nbEssais = nbEssais + 1;
-    	if ( ! caisse.estOuverteEtaccepte(client) ) {
-	    // On en essaye une autre:
-    		if(this.direction == 1) {
-                if( this.caisse.numero() == 15) {
-                    this.direction = -1;
+  public void traiter(LigneDeCaisses ligneDeCaisses, Echeancier echeancier) {
+        boolean fin = false;
 
+        do {
+            nbEssais = nbEssais + 1;
+            if (!caisse.estOuverteEtaccepte(client)) {
+                // On en essaye une autre:
+                caisse = prochaineCaisse(ligneDeCaisses);
+            } else if (nbEssais <= 5) {
+                // On est exigeant et on cherche une caisse vide:
+                if (caisse.fileVide()) {
+                    caisse.ajouter(client);
+                    fin = true;
+                } else {
+                    caisse = prochaineCaisse(ligneDeCaisses);
                 }
+            } else if (nbEssais <= 10) {
+                // On est moins exigeant et on cherche une caisse pas trop
+                // longue:
+                if (caisse.longueurFile() <= 2) {
+                    caisse.ajouter(client);
+                    fin = true;
+                } else {
+                    caisse = prochaineCaisse(ligneDeCaisses);
+                }
+            } else {
+                // On est encore moins exigeant et on prend tout de suite:
+                caisse.ajouter(client);
+                fin = true;
+            }
+        } while (!fin);
+    }
 
-                
-            }else{
-                if( this.caisse.numero() == 1) {
-                    this.direction =1;
-                }
-                }
-          
+    private Caisse prochaineCaisse(LigneDeCaisses ligneDeCaisses) {
+        Caisse res;
+        if (direction == 1) {
+            // Droite
+            res = ligneDeCaisses.caisseADroiteDe(caisse.numero());
+        } else {
+            // Gauche
+            res = ligneDeCaisses.caisseAGaucheDe(caisse.numero());
+        }
 
-    	} else if ( nbEssais <= 5 ) {
-	    // On est exigeant et on cherche une caisse vide:
-    		if ( caisse.fileVide() ) {
-    			echeancier.ajouter(this);
-    		} else {
-    			
-    		}
-    	} else if ( nbEssais <= 10 ) {
-	    // On est moins exigeant et on cherche une caisse pas trop longue:
-    		if ( caisse.longueurFile() <= 2 ) {
-    			aProgrammerPlusTard();
-    		} else {
-    			aProgrammerPlusTard();
-    		}
-    	} else {
-	    // On est encore moins exigeant et on prend tout de suite:
-    		aProgrammerPlusTard();
-    	}
+        // Si on est en bout de ligne de caisse, on change la direction
+        if (res == null) {
+            direction *= -1;
+            res = prochaineCaisse(ligneDeCaisses);
+        }
+        return res;
     }
 
 }
