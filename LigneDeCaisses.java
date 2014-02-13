@@ -82,6 +82,7 @@ public class LigneDeCaisses extends Constantes {
 
 	public void affiche () {
 		int i = 0;
+		int j = 0;
 		while ( i < tableauDesCaisses.length ) {
 			tableauDesCaisses[i].affiche();
 			i = i + 1;
@@ -94,11 +95,12 @@ public class LigneDeCaisses extends Constantes {
 			System.out.print("<vide>");
 		} else {
 			while ( i < listeDesRonchons.size() ) {
-				Client client = listeDesRonchons.get(i);
-				client.afficher();
-				nbTotalRonchons = nbTotalRonchons + 1;
-				nbTotalRonchonnement = nbTotalRonchonnement + client.nombreDeRonchonnements;
-				i = i + 1;
+			Client client = listeDesRonchons.get(i);
+			client.afficher();
+			System.out.print(" ; ");
+			nbTotalRonchons = nbTotalRonchons + 1;
+			nbTotalRonchonnement = nbTotalRonchonnement + client.nombreDeRonchonnements;
+			i = i + 1;
 			}
 		}
 		System.out.println();
@@ -106,22 +108,26 @@ public class LigneDeCaisses extends Constantes {
 		System.out.println(nbTotalRonchons);
 		System.out.print("Nombre total de ronchonnements: ");
 		System.out.println(nbTotalRonchonnement);
+		int maxClientsSortisAffichable = 5;
+		System.out.println("Nombre total de clients sortis:  " + listeClientsSortis.size()); 
 		System.out.print("Derniers sortis: ");
 		i = 0;
 		if ( listeClientsSortis.size() == 0 ) {
 			System.out.print("<vide>");
 		} else {
-			int max_affiche = 4;
-			while ( i < listeClientsSortis.size() && i <= max_affiche ) {
-				Client client = listeClientsSortis.get(i);
-				client.afficher();
-				i = i + 1;
-			}
-			if ( i > max_affiche ) {
-				System.out.print("...");
-			}
+		    if ( listeClientsSortis.size() > maxClientsSortisAffichable ) {
+			System.out.print("... ; ");
+			j = listeClientsSortis.size() - maxClientsSortisAffichable;	
+		    }
+		    while ( i+j < listeClientsSortis.size() && i < maxClientsSortisAffichable ) {
+			Client client = listeClientsSortis.get(i+j);
+			client.afficher();
+			System.out.print(" ; ");
+			i = i + 1;
+		    }
 		}
-		System.out.println();
-	}
+		System.out.println("\n");
+    }
+
 	
 }
