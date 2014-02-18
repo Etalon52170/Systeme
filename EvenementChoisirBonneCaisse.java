@@ -46,35 +46,45 @@ public class EvenementChoisirBonneCaisse extends Evenement {
                 // On est moins exigeant et on cherche une caisse pas trop
                 // longue:
                 if (caisse.longueurFile() <= 2) {
+
                     caisse.ajouter(client);
+                    
                     fin = true;
+                
                 } else {
+                
                     caisse = prochaineCaisse(ligneDeCaisses);
+                
                 }
+            
             } else {
+            
                 // On est encore moins exigeant et on prend tout de suite:
+            
                 caisse.ajouter(client);
+            
                 fin = true;
+            
             }
         } while (!fin);
     }
 
     private Caisse prochaineCaisse(LigneDeCaisses ligneDeCaisses) {
-        Caisse res;
+        Caisse proch;
         if (direction == 1) {
-            // Droite
-            res = ligneDeCaisses.caisseADroiteDe(caisse.numero());
+            
+            proch = ligneDeCaisses.caisseADroiteDe(caisse.numero());
         } else {
-            // Gauche
-            res = ligneDeCaisses.caisseAGaucheDe(caisse.numero());
+           
+            proch = ligneDeCaisses.caisseAGaucheDe(caisse.numero());
         }
 
-        // Si on est en bout de ligne de caisse, on change la direction
-        if (res == null) {
+     
+        if (proch == null) {
             direction *= -1;
-            res = prochaineCaisse(ligneDeCaisses);
+            proch = prochaineCaisse(ligneDeCaisses);
         }
-        return res;
+        return proch;
     }
 
 }

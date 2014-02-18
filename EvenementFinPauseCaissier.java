@@ -13,7 +13,8 @@ public class EvenementFinPauseCaissier extends Evenement {
    }
    
    public void traiter(LigneDeCaisses ligneDeCaisses, Echeancier echeancier) {
-       aProgrammerPlusTard();
+      
+       this.caisse.setStatus('O');
    }
    
 }

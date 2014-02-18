@@ -19,22 +19,24 @@ public class EvenementArriveeClientCaisses extends Evenement {
     
     public void traiter(LigneDeCaisses ligneDeCaisses, Echeancier echeancier) {
     	       Client client = new Client(date);
+               
         if (caisse.estOuverteEtaccepte(client) && caisse.fileVide()) {
             caisse.ajouter(client);
             Evenement e = new EvenementFinServiceClient(date+client.getNbArticles()*tempsPourScannerUnArticle+tempsDePaimentCBouMonnaie, client,caisse);
             echeancier.ajouter(e);
         } else {
-            // Sinon, il choisit une autre caisse
+           
             if (caisse.numero() < ligneDeCaisses.nombreDeCaisses()/2){
-                // Droite
+              
                 Evenement e = new EvenementChoisirBonneCaisse(date+tempsPourChangerDeCaisse,caisse,client,1);
                 echeancier.ajouter(e);
             } else {
-                // Gauche
+                
                 Evenement e = new EvenementChoisirBonneCaisse(date+tempsPourChangerDeCaisse,caisse,client,-1);
                 echeancier.ajouter(e);
             }
         }
+
     	Caisse c = uneCaisseAuHazard(ligneDeCaisses);
     	Evenement e = new EvenementArriveeClientCaisses(date + loiDePoisson.suivant(), c);
     	echeancier.ajouter(e);
@@ -52,6 +54,11 @@ public class EvenementArriveeClientCaisses extends Evenement {
         long dd = (client.getNbArticles()*tempsPourScannerUnArticle)+(tempsDePaimentCBouMonnaie); 
         Evenement efsc = new EvenementFinServiceClient(dd+ date, client, caisse);
         echeancier.ajouter(efsc);
+        
+        
+        long ddd = dureePauseCaissier;
+        Evenement fpc = new EvenementFinPauseCaissier(ddd, c);
+
     }
 
 
