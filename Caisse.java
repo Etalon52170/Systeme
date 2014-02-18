@@ -68,6 +68,10 @@
 	    //		aProgrammerPlusTard();
 	    //	}
 	    }
+
+	    public void retirer (Client client) {
+	    	listeDesClients.remove(client);
+	    }
 	    
 	    public char getStatus () {
 	    	return status;
@@ -94,6 +98,12 @@
 	    		return (client.getNbArticles() <= maxArticleCaisseRapide);
 	    	}
 	    	return true;
+	    }
+
+
+	    public Client getPremierClient(){
+	    	Client c = listeDesClients.get(1);
+	    	return c;
 	    }
 
 	}

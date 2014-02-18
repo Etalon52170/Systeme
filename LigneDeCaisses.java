@@ -109,7 +109,7 @@ public class LigneDeCaisses extends Constantes {
 		System.out.print("Nombre total de ronchonnements: ");
 		System.out.println(nbTotalRonchonnement);
 		int maxClientsSortisAffichable = 5;
-		System.out.println("Nombre total de clients sortis:  " + listeClientsSortis.size()); 
+		System.out.println("Nombre total de clients sortis: " + listeClientsSortis.size()); 
 		System.out.print("Derniers sortis: ");
 		i = 0;
 		if ( listeClientsSortis.size() == 0 ) {
@@ -126,7 +126,7 @@ public class LigneDeCaisses extends Constantes {
 			i = i + 1;
 		    }
 		}
-		System.out.println("\n");
+		System.out.println("\r");
     }
 
 	

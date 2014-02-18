@@ -16,7 +16,13 @@ public class EvenementFinServiceClient extends Evenement {
    }
    
    public void traiter(LigneDeCaisses ligneDeCaisses, Echeancier echeancier) {
-       Client c = new Client(date);
+     
+      caisse.retirer(client);
+     if(caisse.fileVide() == false) {
+      Evenement e = new EvenementFinServiceClient(date+client.getNbArticles()*tempsPourScannerUnArticle+tempsDePaimentCBouMonnaie, client,caisse);
+            echeancier.ajouter(e);
    }
    
+}
+
 }
