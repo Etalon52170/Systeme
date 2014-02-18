@@ -54,7 +54,7 @@
 	    	int i = 0;
 	    	while ( i < listeDesClients.size() ) {
 	    		listeDesClients.get(i).afficher();
-	    		System.out.print(" ");
+	    		System.out.print(' ');
 	    		i = i + 1;
 	    	}
 	    	System.out.println();
