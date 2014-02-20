@@ -65,10 +65,13 @@ public class EvenementChoisirBonneCaisse extends Evenement {
                 this.caisse=nCaisse;
             echeancier.ajouter(this);
         }
-    } else if ( nbEssais <= 10 ) {
+    } 
+    else if ( nbEssais <= 10 ) {
         // On est moins exigeant et on cherche une caisse pas trop longue:
         if ( caisse.longueurFile() <= 2 ) {
             caisse.ajouter(client);
+            e = new EvenementFinServiceClient(date + tempsDePaimentCBouMonnaie + tempsPourScannerUnArticle*client.getNbArticles(), client, caisse);
+            echeancier.ajouter(e);
         } else {
             if(direction == -1){
                 nCaisse = ligneDeCaisses.caisseAGaucheDe(caisse.numero());
@@ -83,6 +86,8 @@ public class EvenementChoisirBonneCaisse extends Evenement {
     } else {
         // On est encore moins exigeant et on prend tout de suite:
         caisse.ajouter(client);
+        e = new EvenementFinServiceClient(date + tempsDePaimentCBouMonnaie + tempsPourScannerUnArticle*client.getNbArticles(), client, caisse);
+        echeancier.ajouter(e);
     }
     }
 

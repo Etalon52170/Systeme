@@ -22,6 +22,8 @@ public class EvenementFinServiceClient extends Evenement {
       Evenement e = new EvenementFinServiceClient(date+client.getNbArticles()*tempsPourScannerUnArticle+tempsDePaimentCBouMonnaie, client,caisse);
             echeancier.ajouter(e);
    }
+
+   ligneDeCaisses.clientSortis(client);
    
 }
 

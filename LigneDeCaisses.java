@@ -129,5 +129,9 @@ public class LigneDeCaisses extends Constantes {
 		System.out.print("\n");
     }
 
+    public void clientSortis(Client c ){
+    	listeClientsSortis.add(c);
+    }
+
 	
 }
