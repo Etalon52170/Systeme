@@ -45,7 +45,7 @@ public class EvenementChoisirBonneCaisse extends Evenement {
         }else{
             nCaisse = ligneDeCaisses.caisseADroiteDe(caisse.numero());
         }
-        //e = new EvenementChoisirBonneCaisse(date + tempsPourChangerDeCaisse, nCaisse, client, direction);
+        
         this.date+=tempsPourChangerDeCaisse;
         this.caisse=nCaisse;
         echeancier.ajouter(this);
@@ -61,8 +61,7 @@ public class EvenementChoisirBonneCaisse extends Evenement {
             }else{
                 nCaisse = ligneDeCaisses.caisseADroiteDe(caisse.numero());
             }
-            //e = new EvenementChoisirBonneCaisse(date + tempsPourChangerDeCaisse, nCaisse ,client,direction);
-            //echeancier.ajouter(e);
+           
               this.date+=tempsPourChangerDeCaisse;
                 this.caisse=nCaisse;
             echeancier.ajouter(this);
@@ -77,8 +76,7 @@ public class EvenementChoisirBonneCaisse extends Evenement {
             }else{
                 nCaisse = ligneDeCaisses.caisseADroiteDe(caisse.numero());
             }
-            //e = new EvenementChoisirBonneCaisse(date + tempsPourChangerDeCaisse, nCaisse ,client,direction);
-            //echeancier.ajouter(e);
+           
             this.date+=tempsPourChangerDeCaisse;
             this.caisse=nCaisse;
               echeancier.ajouter(this);
