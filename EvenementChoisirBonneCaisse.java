@@ -37,7 +37,6 @@ public class EvenementChoisirBonneCaisse extends Evenement {
     }else{
         nCaisse = ligneDeCaisses.caisseADroiteDe(caisse.numero());
     }
-    System.out.println(nCaisse.numero());
     if ( ! caisse.estOuverteEtaccepte(client) ) {
         // On en essaye une autre:
         if(direction == -1){

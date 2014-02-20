@@ -126,7 +126,7 @@ public class LigneDeCaisses extends Constantes {
 			i = i + 1;
 		    }
 		}
-		System.out.println("\r");
+		System.out.print("\n");
     }
 
 	
