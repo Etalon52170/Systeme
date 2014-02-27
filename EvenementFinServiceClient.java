@@ -25,6 +25,12 @@ public class EvenementFinServiceClient extends Evenement {
 
    ligneDeCaisses.clientSortis(client);
    
+  
+
+
+
+
+
 }
 
 }

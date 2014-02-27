@@ -133,5 +133,9 @@ public class LigneDeCaisses extends Constantes {
     	listeClientsSortis.add(c);
     }
 
+    public void clientGrincheux(Client c) {
+    	listeDesRonchons.add(c);   
+    	 }
+
 	
 }

@@ -15,7 +15,14 @@ public class EvenementClientGrincheuxRonchonne extends Evenement {
    
    public void traiter(LigneDeCaisses ligneDeCaisses, Echeancier echeancier) {
        Client c = new Client(date);
+
+       // ajout du client au ronchons
+       ligneDeCaisses.clientGrincheux(c);
+
     
    }
+
+  
+  
    
 }
