@@ -7,6 +7,10 @@ public class EvenementClientGrincheuxRonchonne extends Evenement {
        client = c;
        
    }
+
+   public Client getClient(){
+    return this.client;
+   }
    
    public void afficheDetails(LigneDeCaisses ligneDeCaisses) {
        System.out.print("CGR ");

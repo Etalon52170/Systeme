@@ -48,7 +48,26 @@ public class Echeancier extends Constantes {
 		listeEvenements.removeFirst();
 		return e;
 	}
-	
+
+	public void retirerGrincheux(Client client) {
+		List liste = Collections.synchronizedList(listeEvenements);
+		List<Evenement> listecopie = new LinkedList<Evenement>();
+		listecopie.addAll(liste);
+
+		
+		for(Evenement e: listecopie){
+
+			if(e instanceof EvenementClientGrincheuxRonchonne) {
+			EvenementClientGrincheuxRonchonne ecgr = (EvenementClientGrincheuxRonchonne)e;
+				if(ecgr.getClient() == client){
+				listeEvenements.remove(e);
+			}
+	}
+
+
+	}
+
+	}
 	public void affiche (LigneDeCaisses ascenseur) {
 		System.out.print("Echeancier: ");
 		int index = 0;
@@ -62,8 +81,7 @@ public class Echeancier extends Constantes {
 		System.out.println("");
 	}
 
-
-
+	
 	}
 	
 

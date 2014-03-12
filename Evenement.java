@@ -18,7 +18,7 @@ public abstract class Evenement extends Constantes {
    
    public abstract void afficheDetails (LigneDeCaisses ligneDeCaisses);
    
-
+   
    public Long getDate() {
     return date;
    }

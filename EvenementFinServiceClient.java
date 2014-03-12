@@ -24,8 +24,11 @@ public class EvenementFinServiceClient extends Evenement {
    }
 
    ligneDeCaisses.clientSortis(client);
+
+   echeancier.retirerGrincheux(client); 
    
   
+
 
 
 
